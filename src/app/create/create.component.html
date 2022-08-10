@@ -1,0 +1,50 @@
+<div class="container">
+    <h1 class="text-uppercase mt-5 mb-3">Create Component Tools</h1>
+
+    <form [formGroup]="myForm" (ngSubmit)="myFormSubmit()" >
+        <div class="mt-5 mb-3">
+            <input type="text" class="form-control" placeholder="Enter username" formControlName="username" />
+
+            <div class="error" *ngIf="myForm.get('username').hasError('required') && myForm.get('username').touched">
+                <span class="text-danger mt-3"> username is Required</span>
+
+            </div>
+
+           
+        </div>
+        <div class="mt-5 mb-3">
+            <input type="number" class="form-control" placeholder="Enter employeecode" formControlName="employeecode" />
+            <!-- <span class="text-danger mt-3"class="error" *ngIf="myForm.get('username').hasError('required') && myForm.get('username').touched"> code should be atleast in 5 numbers </span> -->
+
+            <div>
+                <!-- <span class="text-danger mt-3"class="error" *ngIf="myForm.get('employeecode').hasError('required') && myForm.get('employeecode').touched"> Employeecode is Required </span> -->
+             
+                
+            </div>
+
+        </div>
+        <div class="mt-5 mb-3">
+            <input type="email" class="form-control" placeholder="Enter email" formControlName="usermail" />
+
+            <div class="error" *ngIf="myForm.get('usermail').hasError('required') && myForm.get('usermail').touched">
+                <span class="text-danger mt-3"> Emailid is Required</span>
+
+            </div>
+
+        </div>
+
+        <div class="mt-5 mb-3">
+            <input type="text" class="form-control" placeholder="Enter mobile" formControlName="usermobile" />
+
+        </div>
+
+        <div>
+            <button type="submit" class="btn btn-info mt-5 " *ngIf="!patchData" >Create</button>
+
+
+
+            <button type="button" class="btn btn-warning mx-5 mt-5 float-end" (click)="updateFormSubmit()"
+                *ngIf="patchData">Update</button>
+        </div>
+    </form>
+</div>
